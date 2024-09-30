@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transparent Video in Web AR</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin: 0px; overflow: hidden;">
+  <a-scene embedded arjs>
+    
+    <!-- A marker for AR -->
+    <a-marker preset="hiro">
+      <!-- Plane where the transparent video will be shown -->
+      <a-video src="#transparent-video" width="1" height="1" position="0 0.5 0"></a-video>
+    </a-marker>
+
+    <a-assets>
+      <!-- Preload the transparent video -->
+      <video id="transparent-video" autoplay loop crossorigin="anonymous" webkit-playsinline playsinline>
+        <source src="path_to_your_video.webm" type="video/webm">
+      </video>
+    </a-assets>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>
